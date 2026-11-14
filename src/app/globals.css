@@ -1,26 +1,28 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  color-scheme: light;
+  --background: #fdf7f0;
+  --foreground: #3b2f28;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --font-sans:
+    "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont,
+    system-ui, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
 }
 
 body {
-  background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+  /* 크림 → 연한 살구 그라데이션 + 은은한 빛 번짐 (글래스 카드 뒤 깊이감) */
+  background-color: var(--background);
+  background-image:
+    radial-gradient(circle at 15% 10%, rgb(255 255 255 / 0.7), transparent 40%),
+    radial-gradient(circle at 90% 85%, rgb(250 196 160 / 0.45), transparent 45%),
+    linear-gradient(165deg, #fdf8f1 0%, #fcefe3 50%, #fadccb 100%);
+  background-attachment: fixed;
+  word-break: keep-all;
 }
